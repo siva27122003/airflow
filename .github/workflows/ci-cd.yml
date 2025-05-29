@@ -29,7 +29,9 @@ jobs:
       - name: Run tests
         working-directory: ./airflow 
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/airflow/devel-common/src
+          export PYTHONPATH=$(pwd)/airflow/devel-common/src
+          echo "PYTHONPATH=$PYTHONPATH"
+          pytest airflow/airflow-core/tests/export PYTHONPATH=$PYTHONPATH:$(pwd)/airflow/devel-common/src
           pytest airflow-core/tests/
 
   docker-build:
