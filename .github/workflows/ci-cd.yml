@@ -27,6 +27,7 @@ jobs:
 
 
       - name: Run tests
+        working-directory: ./airflow 
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)/airflow/devel-common/src
           pytest airflow-core/tests/
